@@ -1,7 +1,7 @@
 [org 0x7c00]
 
-    mov bp, 0x8000
-    mov sp, bp
+    mov bp, 0x8000 ; base pointer of stack
+    mov sp, bp ; stack pointing to base pointer (empty stack)
 
     mov bx, 0x9000
     mov dh, 2
