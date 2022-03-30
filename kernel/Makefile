@@ -14,7 +14,7 @@ kernel_entry.o: kernel_entry.asm
 
 kernel.o: kernel.c
 	gcc -ffreestanding -c $< -o $@
-	#gcc -ffreestanding -c kernel.c -o kernel.o
+	#gcc -ffreestanding -kernel kernel.kernel -o kernel.o
 
 kernel.dis: kernel.bin
 	ndisasm -b 32 $< > $@
