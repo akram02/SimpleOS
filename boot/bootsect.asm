@@ -15,9 +15,9 @@ KERNEL_OFFSET equ 0x1000
 %include "boot/print.asm"
 %include "boot/print_hex.asm"
 %include "boot/disk.asm"
-%include "boot/32bit-gdt.asm"
-%include "boot/32bit-print.asm"
-%include "boot/32bit-switch.asm"
+%include "boot/gdt.asm"
+%include "boot/32bit_print.asm"
+%include "boot/switch_pm.asm"
 
 [bits 16]
 load_kernel:
