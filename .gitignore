@@ -2,3 +2,5 @@
 /.idea
 /Cargo.lock
 /SimpleOS.iml
+*.o
+*.bin
