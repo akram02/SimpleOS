@@ -24,12 +24,12 @@ kernel.elf: boot/kernel_entry.o ${OBJ}
 	#ld -m elf_i386 -o kernel.bin -Ttext 0x1000 kernel_entry.o kernel.o
 
 run: os-image.bin
-	qemu-system-x86_64 $<
+	qemu-system-i386 $<
 	#qemu-system-x86_64 -fda $<
 	#qemu-system-x86_64 os-image.bin
 
 debug: os-image.bin kernel.elf
-	qemu-system-x86_64 -s os-image.bin &
+	qemu-system-i386 -s os-image.bin &
 	${GDB} -ex "target remote localhost:1234" -ex "symbol-file kernel.elf"
 
 %.o: %.c ${HEADERS}
