@@ -24,7 +24,7 @@ kernel.elf: boot/kernel_entry.o ${OBJ}
 	#ld -m elf_i386 -o kernel.bin -Ttext 0x1000 kernel_entry.o kernel.o
 
 run: os-image.bin
-	qemu-system-i386 $<
+	qemu-system-i386 -drive file=$<,format=raw
 	#qemu-system-x86_64 -fda $<
 	#qemu-system-x86_64 os-image.bin
 
