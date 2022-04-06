@@ -31,7 +31,7 @@ run: os-image.bin
 
 debug: os-image.bin kernel.elf
 	qemu-system-i386 -s os-image.bin -d guest_errors,int &
-	${GDB} -ex "target remote localhost:1234" -ex "symbol-file kernel.elf"
+	${GDB} -ex "target remote localhost:1234" -ex "symbol-file kernel.elf"  -ex "break *0x7c00" -ex "break main" -ex "c" -ex "c"
 
 %.o: %.c ${HEADERS}
 	${CC} -m32 ${CFLAGS} -ffreestanding -fno-pie -c $< -o $@
