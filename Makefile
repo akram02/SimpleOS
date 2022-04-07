@@ -8,8 +8,7 @@ OBJ = ${C_SOURCES:.c=.o cpu/interrupt.o}
 
 CC = /usr/bin/gcc
 GDB = /usr/bin/gdb
-CFLAGS = -g -m32 -nostdlib -nostdinc -fno-builtin -fno-stack-protector -nostartfiles -nodefaultlibs \
-				 -Wall -Wextra -Werror
+CFLAGS = -g -ffreestanding -Wall -Wextra -fno-exceptions -m32
 
 
 os-image.bin: boot/bootsect.bin kernel.bin
