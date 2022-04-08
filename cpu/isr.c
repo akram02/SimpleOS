@@ -7,7 +7,8 @@
 #include "ports.h"
 
 isr_t interrupt_handlers[256];
-
+char s[3];
+uint32_t int_no;
 /* Can't do this with a loop because we need the address
  * of the function names */
 void isr_install() {
@@ -118,11 +119,11 @@ char *exception_messages[] = {
 
 void isr_handler(registers_t *r) {
     kprint("received interrupt: ");
-    char s[3];
-    int_to_ascii(r->int_no, s);
+    int_no = r->int_no;
+    int_to_ascii(int_no, s);
     kprint(s);
     kprint("\n");
-    kprint(exception_messages[r->int_no]);
+    kprint(exception_messages[int_no]);
     kprint("\n");
 }
 
